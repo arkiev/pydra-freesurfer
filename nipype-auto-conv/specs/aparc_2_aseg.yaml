@@ -55,26 +55,26 @@ inputs:
   # from the nipype interface, but you may want to be more specific, particularly
   # for file types, where specifying the format also specifies the file that will be
   # passed to the field in the automatically generated unittests.
-    out_file: medimage/mgh-gz
+    out_file: Path
     # type=file: Output aseg file
     # type=file|default=<undefined>: Full path of file to save the output segmentation in
-    lh_white: generic/file
+    lh_white: Path
     # type=file|default=<undefined>: Input file must be <subject_id>/surf/lh.white
-    rh_white: generic/file
+    rh_white: Path
     # type=file|default=<undefined>: Input file must be <subject_id>/surf/rh.white
-    lh_pial: generic/file
+    lh_pial: Path
     # type=file|default=<undefined>: Input file must be <subject_id>/surf/lh.pial
-    rh_pial: generic/file
+    rh_pial: Path
     # type=file|default=<undefined>: Input file must be <subject_id>/surf/rh.pial
-    lh_ribbon: medimage/mgh-gz
+    lh_ribbon: Path
     # type=file|default=<undefined>: Input file must be <subject_id>/mri/lh.ribbon.mgz
-    rh_ribbon: medimage/mgh-gz
+    rh_ribbon: Path
     # type=file|default=<undefined>: Input file must be <subject_id>/mri/rh.ribbon.mgz
-    ribbon: medimage/mgh-gz
+    ribbon: Path
     # type=file|default=<undefined>: Input file must be <subject_id>/mri/ribbon.mgz
-    lh_annotation: generic/file
+    lh_annotation: Path
     # type=file|default=<undefined>: Input file must be <subject_id>/label/lh.aparc.annot
-    rh_annotation: generic/file
+    rh_annotation: Path
     # type=file|default=<undefined>: Input file must be <subject_id>/label/rh.aparc.annot
     filled: generic/file
     # type=file|default=<undefined>: Implicit input filled file. Only required with FS v5.3.
@@ -95,7 +95,7 @@ outputs:
   # from the nipype interface, but you may want to be more specific, particularly
   # for file types, where specifying the format also specifies the file that will be
   # passed to the field in the automatically generated unittests.
-    out_file: medimage/mgh-gz
+    out_file: Path
     # type=file: Output aseg file
     # type=file|default=<undefined>: Full path of file to save the output segmentation in
   callables:
