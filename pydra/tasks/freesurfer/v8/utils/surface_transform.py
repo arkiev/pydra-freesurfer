@@ -82,41 +82,63 @@ class SurfaceTransform(shell.Task["SurfaceTransform.Outputs"]):
     """
 
     executable = "mri_surf2surf"
-    source_file: File | None = shell.arg(
-        help="surface file with source values", argstr="--sval {source_file}"
+
+    source_file: ty.Any | None = shell.arg(
+        help="surface file with source values",
+        argstr="--sval {source_file}",
+        default=False,
     )
-    source_annot_file: File | None = shell.arg(
-        help="surface annotation file", argstr="--sval-annot {source_annot_file}"
+    source_annot_file: ty.Any | None = shell.arg(
+        help="surface annotation file",
+        argstr="--sval-annot {source_annot_file}",
+        default=False,
     )
     source_subject: ty.Any = shell.arg(
-        help="subject id for source surface", argstr="--srcsubject {source_subject}"
+        help="subject id for source surface",
+        argstr="--srcsubject {source_subject}",
+        default=False,
     )
-    hemi: ty.Any = shell.arg(help="hemisphere to transform", argstr="--hemi {hemi}")
+    hemi: ty.Any = shell.arg(
+        help="hemisphere to transform",
+        argstr="--hemi {hemi}",
+    )
     target_subject: ty.Any = shell.arg(
-        help="subject id of target surface", argstr="--trgsubject {target_subject}"
+        help="subject id of target surface",
+        argstr="--trgsubject {target_subject}",
     )
-    target_ico_order: ty.Any = shell.arg(
+    target_ico_order: ty.Any | None = shell.arg(
         help="order of the icosahedron if target_subject is 'ico'",
         argstr="--trgicoorder {target_ico_order}",
+        default=False,
     )
-    source_type: ty.Any = shell.arg(
+    source_type: ty.Any | None = shell.arg(
         help="source file format",
         argstr="--sfmt {source_type}",
         requires=["source_file"],
+        default=False,
     )
-    target_type: ty.Any = shell.arg(
-        help="output format", formatter=target_type_formatter
+    target_type: ty.Any | None = shell.arg(
+        help="output format",
+        formatter=target_type_formatter,
+        default=False,
     )
-    reshape: bool = shell.arg(
-        help="reshape output surface to conform with Nifti", argstr="--reshape"
+    reshape: bool | None = shell.arg(
+        help="reshape output surface to conform with Nifti",
+        argstr="--reshape",
+        default=False,
     )
-    reshape_factor: int = shell.arg(
-        help="number of slices in reshaped image", argstr="--reshape-factor"
+    reshape_factor: int | None = shell.arg(
+        help="number of slices in reshaped image",
+        argstr="--reshape-factor",
+        default=False,
     )
-    subjects_dir: Directory = shell.arg(help="subjects directory")
+    subjects_dir: ty.Any | None = shell.arg(
+        help="subjects directory",
+        default=False,
+    )
 
     class Outputs(shell.Outputs):
-        out_file: Path = shell.outarg(
+        out_file: File = shell.outarg(
             help="surface file to write",
             argstr="--tval {out_file}",
             path_template="out_file",
