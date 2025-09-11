@@ -85,50 +85,101 @@ class Aparc2Aseg(shell.Task["Aparc2Aseg.Outputs"]):
 
     executable = "mri_aparc2aseg"
     subject_id: ty.Any | None = shell.arg(
-        help="Subject being processed", argstr="--s {subject_id}", default="subject_id"
+        help="Subject being processed", argstr="--s {subject_id}", default=False
     )
     out_file: Path = shell.arg(
         help="Full path of file to save the output segmentation in",
         formatter="out_file_formatter",
+        default=False,
     )
-    lh_white: Pial = shell.arg(help="Input file must be <subject_id>/surf/lh.white")
-    rh_white: File = shell.arg(help="Input file must be <subject_id>/surf/rh.white")
-    lh_pial: Pial = shell.arg(help="Input file must be <subject_id>/surf/lh.pial")
-    rh_pial: File = shell.arg(help="Input file must be <subject_id>/surf/rh.pial")
-    lh_ribbon: MghGz = shell.arg(
-        help="Input file must be <subject_id>/mri/lh.ribbon.mgz"
+    lh_white: ty.Any | None = shell.arg(
+        help="Input file must be <subject_id>/surf/lh.white",
+        default=False,
     )
-    rh_ribbon: File = shell.arg(
-        help="Input file must be <subject_id>/mri/rh.ribbon.mgz"
+    rh_white: ty.Any | None = shell.arg(
+        help="Input file must be <subject_id>/surf/rh.white",
+        default=False,
     )
-    ribbon: MghGz = shell.arg(help="Input file must be <subject_id>/mri/ribbon.mgz")
-    lh_annotation: File = shell.arg(
-        help="Input file must be <subject_id>/label/lh.aparc.annot"
+    lh_pial: ty.Any | None = shell.arg(
+        help="Input file must be <subject_id>/surf/lh.pial",
+        default=False,
     )
-    rh_annotation: Pial = shell.arg(
-        help="Input file must be <subject_id>/label/rh.aparc.annot"
+    rh_pial: ty.Any | None = shell.arg(
+        help="Input file must be <subject_id>/surf/rh.pial",
+        default=False,
     )
-    filled: File = shell.arg(
-        help="Implicit input filled file. Only required with FS v5.3."
+    lh_ribbon: ty.Any | None = shell.arg(
+        help="Input file must be <subject_id>/mri/lh.ribbon.mgz",
+        default=False,
     )
-    aseg: File = shell.arg(help="Input aseg file", formatter="aseg_formatter")
-    volmask: bool = shell.arg(help="Volume mask flag", argstr="--volmask")
-    ctxseg: File = shell.arg(help="", argstr="--ctxseg {ctxseg}")
-    label_wm: bool = shell.arg(
+    rh_ribbon: ty.Any | None = shell.arg(
+        help="Input file must be <subject_id>/mri/rh.ribbon.mgz",
+        default=False,
+    )
+    ribbon: ty.Any | None = shell.arg(
+        help="Input file must be <subject_id>/mri/ribbon.mgz",
+        default=False,
+    )
+    lh_annotation: ty.Any = shell.arg(
+        help="Input file must be <subject_id>/label/lh.aparc.annot",
+    )
+    rh_annotation: ty.Any = shell.arg(
+        help="Input file must be <subject_id>/label/rh.aparc.annot",
+    )
+    filled: ty.Any | None = shell.arg(
+        help="Implicit input filled file. Only required with FS v5.3.",
+        default=False,
+    )
+    aseg: ty.Any | None = shell.arg(
+        help="Input aseg file",
+        formatter="aseg_formatter",
+        default=False,
+    )
+    volmask: bool | None = shell.arg(
+        help="Volume mask flag",
+        argstr="--volmask",
+        default=False,
+    )
+    ctxseg: ty.Any | None = shell.arg(
+        help="",
+        argstr="--ctxseg {ctxseg}",
+        default=False,
+    )
+    label_wm: bool | None = shell.arg(
         help="For each voxel labeled as white matter in the aseg, re-assign\nits label to be that of the closest cortical point if its\ndistance is less than dmaxctx.",
         argstr="--labelwm",
+        default=False,
     )
-    hypo_wm: bool = shell.arg(help="Label hypointensities as WM", argstr="--hypo-as-wm")
-    rip_unknown: bool = shell.arg(
-        help="Do not label WM based on 'unknown' corical label", argstr="--rip-unknown"
+    hypo_wm: bool | None = shell.arg(
+        help="Label hypointensities as WM",
+        argstr="--hypo-as-wm",
+        default=False,
     )
-    a2009s: bool = shell.arg(help="Using the a2009s atlas", argstr="--a2009s")
-    copy_inputs: bool = shell.arg(
-        help="If running as a node, set this to True.This will copy the input files to the node directory."
+    rip_unknown: bool | None = shell.arg(
+        help="Do not label WM based on 'unknown' corical label",
+        argstr="--rip-unknown",
+        default=False,
     )
-    subjects_dir: Directory = shell.arg(help="subjects directory")
+    a2009s: bool | None = shell.arg(
+        help="Using the a2009s atlas",
+        argstr="--a2009s",
+        default=False,
+    )
+    copy_inputs: bool | None = shell.arg(
+        help="If running as a node, set this to True.This will copy the input files to the node directory.",
+        default=False,
+    )
+    # subjects_dir: Directory = shell.arg(help="subjects directory")
+    old_ribbon: bool | None = shell.arg(
+        help="	use mri/hemi.ribbon.mgz as a mask for the cortex",
+        argstr="--old-ribbon",
+        default=False,
+    )
 
     class Outputs(shell.Outputs):
-        out_file: File | None = shell.out(
-            help="Output aseg file", callable=out_file_callable
+        out_file: File | None = shell.outarg(
+            help="Full path of file to save the output segmentation in",
+            # callable=out_file_callable,
+            argstr="--o {out_file}",
+            path_template="out_file",
         )
