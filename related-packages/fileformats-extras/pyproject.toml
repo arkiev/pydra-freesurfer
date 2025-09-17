@@ -58,7 +58,7 @@ converters = [
 ]
 
 [project.urls]
-repository = "https://github.com/nipype/pydra-freesurfer"
+repository = "https://github.com/nipype/pydra-tasks-freesurfer"
 
 [tool.hatch.version]
 source = "vcs"
