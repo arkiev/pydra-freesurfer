@@ -1,6 +1,6 @@
 from fileformats.generic import Directory, File
 from fileformats.medimage import MghGz
-from fileformats.medimage_freesurfer import Pial
+from fileformats.vendor.freesurfer.medimage import Pial
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
 from pydra.tasks.freesurfer.v8.utils.make_surfaces import MakeSurfaces

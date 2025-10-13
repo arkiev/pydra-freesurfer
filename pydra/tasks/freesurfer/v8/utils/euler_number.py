@@ -1,6 +1,6 @@
 import attrs
 from fileformats.generic import Directory
-from fileformats.medimage_freesurfer import Pial
+from fileformats.vendor.freesurfer.medimage import Pial
 import logging
 from pydra.compose import shell
 
@@ -38,7 +38,7 @@ class EulerNumber(shell.Task["EulerNumber.Outputs"]):
     -------
 
     >>> from fileformats.generic import Directory
-    >>> from fileformats.medimage_freesurfer import Pial
+    >>> from fileformats.vendor.freesurfer.medimage import Pial
     >>> from pydra.tasks.freesurfer.v8.utils.euler_number import EulerNumber
 
     >>> task = EulerNumber()

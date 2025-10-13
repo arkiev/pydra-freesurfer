@@ -1,7 +1,7 @@
 import attrs
 from fileformats.generic import Directory, File
 from fileformats.medimage import MghGz
-from fileformats.medimage_freesurfer import Pial
+from fileformats.vendor.freesurfer.medimage import Pial
 import logging
 from pydra.tasks.freesurfer.v8.nipype_ports.utils.filemanip import fname_presuffix
 import os
@@ -137,7 +137,7 @@ class SegStatsReconAll(shell.Task["SegStatsReconAll.Outputs"]):
 
     >>> from fileformats.generic import Directory, File
     >>> from fileformats.medimage import MghGz
-    >>> from fileformats.medimage_freesurfer import Pial
+    >>> from fileformats.vendor.freesurfer.medimage import Pial
     >>> from pathlib import Path
     >>> from pydra.tasks.freesurfer.v8.model.seg_stats_recon_all import SegStatsReconAll
 

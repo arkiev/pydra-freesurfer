@@ -1,6 +1,6 @@
 import attrs
 from fileformats.generic import Directory, File
-from fileformats.medimage_freesurfer import Pial
+from fileformats.vendor.freesurfer.medimage import Pial
 import logging
 import os
 from pydra.compose import shell
@@ -64,7 +64,7 @@ class VolumeMask(shell.Task["VolumeMask.Outputs"]):
     -------
 
     >>> from fileformats.generic import Directory, File
-    >>> from fileformats.medimage_freesurfer import Pial
+    >>> from fileformats.vendor.freesurfer.medimage import Pial
     >>> from pydra.tasks.freesurfer.v8.utils.volume_mask import VolumeMask
 
     >>> task = VolumeMask()

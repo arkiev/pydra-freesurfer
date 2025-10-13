@@ -1,6 +1,6 @@
 import attrs
 from fileformats.generic import Directory, File
-from fileformats.medimage_freesurfer import Pial
+from fileformats.vendor.freesurfer.medimage import Pial
 import logging
 import os
 from pathlib import Path
@@ -36,7 +36,7 @@ class MRIsInflate(shell.Task["MRIsInflate.Outputs"]):
     -------
 
     >>> from fileformats.generic import Directory, File
-    >>> from fileformats.medimage_freesurfer import Pial
+    >>> from fileformats.vendor.freesurfer.medimage import Pial
     >>> from pathlib import Path
     >>> from pydra.tasks.freesurfer.v8.utils.mr_is_inflate import MRIsInflate
 

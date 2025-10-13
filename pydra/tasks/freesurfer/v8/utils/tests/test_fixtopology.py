@@ -1,5 +1,5 @@
 from fileformats.generic import Directory, File
-from fileformats.medimage_freesurfer import Nofix, Orig
+from fileformats.vendor.freesurfer.medimage import Nofix, Orig
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
 from pydra.tasks.freesurfer.v8.utils.fix_topology import FixTopology

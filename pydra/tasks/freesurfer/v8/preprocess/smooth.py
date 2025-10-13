@@ -1,7 +1,7 @@
 import attrs
 from fileformats.generic import Directory
 from fileformats.medimage import Nifti1
-from fileformats.medimage_freesurfer import Dat
+from fileformats.vendor.freesurfer.medimage import Dat
 import logging
 from pydra.tasks.freesurfer.v8.nipype_ports.utils.filemanip import fname_presuffix
 from pathlib import Path
@@ -33,7 +33,7 @@ class Smooth(shell.Task["Smooth.Outputs"]):
 
     >>> from fileformats.generic import Directory
     >>> from fileformats.medimage import Nifti1
-    >>> from fileformats.medimage_freesurfer import Dat
+    >>> from fileformats.vendor.freesurfer.medimage import Dat
     >>> from pathlib import Path
     >>> from pydra.tasks.freesurfer.v8.preprocess.smooth import Smooth
 
