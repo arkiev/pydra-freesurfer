@@ -13,7 +13,7 @@ dependencies = [
   "fileformats >=0.15.4",
   "fileformats-datascience >=0.3.2",
   "fileformats-medimage >=0.10.5",
-  "fileformats-medimage_freesurfer",
+  "fileformats.vendor.freesurfer.medimage",
   "looseversion>=1.3.0",
 ]
 license = { file = "LICENSE" }
