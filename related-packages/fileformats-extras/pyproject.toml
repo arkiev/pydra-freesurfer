@@ -70,7 +70,7 @@ version-file = "fileformats/extras/vendor/freesurfer/_version.py"
 packages = ["fileformats"]
 
 [tool.black]
-target-version = ['py38']
+target-version = ['py311']
 exclude = "fileformats/extras/vendor/freesurfer/_version.py"
 
 [tool.codespell]
