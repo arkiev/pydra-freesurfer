@@ -1,6 +1,6 @@
 from fileformats.generic import Directory, File
 from fileformats.medimage import MghGz
-from fileformats.medimage_freesurfer import Lta
+from fileformats.vendor.freesurfer.medimage import Lta
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
 from pydra.tasks.freesurfer.v8.preprocess.watershed_skull_strip import (

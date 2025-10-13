@@ -1,5 +1,5 @@
 from fileformats.generic import Directory, File
-from fileformats.medimage_freesurfer import Pial
+from fileformats.vendor.freesurfer.medimage import Pial
 import logging
 from pathlib import Path
 from pathlib import Path
@@ -16,7 +16,7 @@ class Jacobian(shell.Task["Jacobian.Outputs"]):
     -------
 
     >>> from fileformats.generic import Directory, File
-    >>> from fileformats.medimage_freesurfer import Pial
+    >>> from fileformats.vendor.freesurfer.medimage import Pial
     >>> from pathlib import Path
     >>> from pydra.tasks.freesurfer.v8.utils.jacobian import Jacobian
 

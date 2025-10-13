@@ -1,7 +1,7 @@
 import attrs
 from fileformats.generic import Directory, File
 from fileformats.medimage import Nifti1
-from fileformats.medimage_freesurfer import Dat, Label
+from fileformats.vendor.freesurfer.medimage import Dat, Label
 import logging
 from pydra.tasks.freesurfer.v8.nipype_ports.utils.filemanip import fname_presuffix
 import os
@@ -39,7 +39,7 @@ class Label2Vol(shell.Task["Label2Vol.Outputs"]):
 
     >>> from fileformats.generic import Directory, File
     >>> from fileformats.medimage import Nifti1
-    >>> from fileformats.medimage_freesurfer import Dat, Label
+    >>> from fileformats.vendor.freesurfer.medimage import Dat, Label
     >>> from pathlib import Path
     >>> from pydra.tasks.freesurfer.v8.model.label_2_vol import Label2Vol
 

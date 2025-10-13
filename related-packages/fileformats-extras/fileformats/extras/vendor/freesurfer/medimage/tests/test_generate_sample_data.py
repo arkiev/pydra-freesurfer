@@ -1,5 +1,5 @@
 import pytest
-from fileformats.medimage_freesurfer import (
+from fileformats.vendor.freesurfer.medimage import (
     Label,
     Lta,
     Orig,
@@ -17,7 +17,6 @@ from fileformats.medimage_freesurfer import (
     Inflated,
     Out,
 )
-
 
 
 @pytest.mark.xfail(reason="generate_sample_data not implemented")

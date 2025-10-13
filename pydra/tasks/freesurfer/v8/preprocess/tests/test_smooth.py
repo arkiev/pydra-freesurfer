@@ -1,6 +1,6 @@
 from fileformats.generic import Directory
 from fileformats.medimage import Nifti1
-from fileformats.medimage_freesurfer import Dat
+from fileformats.vendor.freesurfer.medimage import Dat
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
 from pydra.tasks.freesurfer.v8.preprocess.smooth import Smooth

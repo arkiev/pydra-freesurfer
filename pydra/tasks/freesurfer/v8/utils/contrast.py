@@ -1,7 +1,7 @@
 import attrs
 from fileformats.generic import Directory, File
 from fileformats.medimage import MghGz
-from fileformats.medimage_freesurfer import Annot, White
+from fileformats.vendor.freesurfer.medimage import Annot, White
 import logging
 import os
 from pydra.compose import shell
@@ -55,7 +55,7 @@ class Contrast(shell.Task["Contrast.Outputs"]):
 
     >>> from fileformats.generic import Directory, File
     >>> from fileformats.medimage import MghGz
-    >>> from fileformats.medimage_freesurfer import Annot, White
+    >>> from fileformats.vendor.freesurfer.medimage import Annot, White
     >>> from pydra.tasks.freesurfer.v8.utils.contrast import Contrast
 
     >>> task = Contrast()

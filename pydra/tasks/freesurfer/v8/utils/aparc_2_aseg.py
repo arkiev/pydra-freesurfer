@@ -1,7 +1,7 @@
 import attrs
 from fileformats.generic import Directory, File
 from fileformats.medimage import MghGz
-from fileformats.medimage_freesurfer import Pial
+from fileformats.vendor.freesurfer.medimage import Pial
 import logging
 import os
 from pathlib import Path
@@ -58,7 +58,7 @@ class Aparc2Aseg(shell.Task["Aparc2Aseg.Outputs"]):
 
     >>> from fileformats.generic import Directory, File
     >>> from fileformats.medimage import MghGz
-    >>> from fileformats.medimage_freesurfer import Pial
+    >>> from fileformats.vendor.freesurfer.medimage import Pial
     >>> from pathlib import Path
     >>> from pydra.tasks.freesurfer.v8.utils.aparc_2_aseg import Aparc2Aseg
 

@@ -3,14 +3,14 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "fileformats-medimage-freesurfer-extras"
+name = "fileformats-vendor-freesurfer-extras"
 description = "Extensions to add functionality to tool-specific *fileformats* classes"
 readme = "README.rst"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 dependencies = [
     "fileformats",
-    "fileformats-medimage-freesurfer",
-    "pydra >= 0.23.0a"
+    "fileformats-vendor-freesurfer",
+    "pydra >= 1.0a"
 ]
 license = {file = "LICENSE"}
 authors = [
@@ -31,10 +31,9 @@ classifiers = [
     "Operating System :: MacOS :: MacOS X",
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX :: Linux",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Scientific/Engineering",
 ]
 dynamic = ["version"]
@@ -58,21 +57,21 @@ converters = [
 ]
 
 [project.urls]
-repository = "https://github.com/nipype/pydra-freesurfer"
+repository = "https://github.com/nipype/pydra-tasks-freesurfer"
 
 [tool.hatch.version]
 source = "vcs"
 raw-options = { root = "../.." }
 
 [tool.hatch.build.hooks.vcs]
-version-file = "fileformats/extras/medimage_freesurfer/_version.py"
+version-file = "fileformats/extras/vendor/freesurfer/_version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["fileformats"]
 
 [tool.black]
-target-version = ['py38']
-exclude = "fileformats/extras/medimage_freesurfer/_version.py"
+target-version = ['py311']
+exclude = "fileformats/extras/vendor/freesurfer/_version.py"
 
 [tool.codespell]
 ignore-words = ".codespell-ignorewords"
