@@ -1,5 +1,5 @@
 from fileformats.generic import Directory, File
-from fileformats.medimage_freesurfer import Area
+from fileformats.vendor.freesurfer.medimage import Area
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
 from pydra.tasks.freesurfer.v8.utils.mr_is_calc import MRIsCalc

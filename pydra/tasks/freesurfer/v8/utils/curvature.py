@@ -1,6 +1,6 @@
 import attrs
 from fileformats.generic import Directory, File
-from fileformats.medimage_freesurfer import Pial
+from fileformats.vendor.freesurfer.medimage import Pial
 import logging
 import os
 from pydra.compose import shell
@@ -60,7 +60,7 @@ class Curvature(shell.Task["Curvature.Outputs"]):
     -------
 
     >>> from fileformats.generic import Directory, File
-    >>> from fileformats.medimage_freesurfer import Pial
+    >>> from fileformats.vendor.freesurfer.medimage import Pial
     >>> from pydra.tasks.freesurfer.v8.utils.curvature import Curvature
 
     >>> task = Curvature()

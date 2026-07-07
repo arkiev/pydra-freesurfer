@@ -1,7 +1,7 @@
 import attrs
 from fileformats.generic import Directory, File
 from fileformats.medimage import NiftiGz
-from fileformats.medimage_freesurfer import Lta
+from fileformats.vendor.freesurfer.medimage import Lta
 import logging
 import os
 from pydra.compose import shell
@@ -275,7 +275,7 @@ class GTMPVC(shell.Task["GTMPVC.Outputs"]):
 
     >>> from fileformats.generic import Directory, File
     >>> from fileformats.medimage import NiftiGz
-    >>> from fileformats.medimage_freesurfer import Lta
+    >>> from fileformats.vendor.freesurfer.medimage import Lta
     >>> from pydra.tasks.freesurfer.v8.petsurfer.gtmpvc import GTMPVC
 
     >>> task = GTMPVC()

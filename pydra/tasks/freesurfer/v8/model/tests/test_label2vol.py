@@ -1,6 +1,6 @@
 from fileformats.generic import Directory, File
 from fileformats.medimage import Nifti1
-from fileformats.medimage_freesurfer import Dat, Label
+from fileformats.vendor.freesurfer.medimage import Dat, Label
 import logging
 from nipype2pydra.testing import PassAfterTimeoutWorker
 from pydra.tasks.freesurfer.v8.model.label_2_vol import Label2Vol

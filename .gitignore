@@ -156,6 +156,6 @@ cython_debug/
 
 # Generated files
 /pydra/tasks/freesurfer/_version.py
-/related-packages/fileformats/fileformats/medimage_freesurfer/_version.py
-/related-packages/fileformats-extras/fileformats/extras/medimage_freesurfer/_version.py
+/related-packages/fileformats/fileformats/vendor/freesurfer/_version.py
+/related-packages/fileformats-extras/fileformats/extras/vendor/freesurfer/_version.py
 /pydra/tasks/freesurfer/auto

@@ -1,5 +1,5 @@
 from fileformats.generic import Directory, File
-from fileformats.medimage_freesurfer import Lta
+from fileformats.vendor.freesurfer.medimage import Lta
 import logging
 from pathlib import Path
 from pathlib import Path
@@ -31,7 +31,7 @@ class ConcatenateLTA(shell.Task["ConcatenateLTA.Outputs"]):
     -------
 
     >>> from fileformats.generic import Directory, File
-    >>> from fileformats.medimage_freesurfer import Lta
+    >>> from fileformats.vendor.freesurfer.medimage import Lta
     >>> from pathlib import Path
     >>> from pydra.tasks.freesurfer.v8.preprocess.concatenate_lta import ConcatenateLTA
 

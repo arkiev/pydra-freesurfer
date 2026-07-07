@@ -1,6 +1,6 @@
 import attrs
 from fileformats.generic import Directory, File
-from fileformats.medimage_freesurfer import Nofix, Orig
+from fileformats.vendor.freesurfer.medimage import Nofix, Orig
 import logging
 import os
 from pydra.compose import shell
@@ -48,7 +48,7 @@ class FixTopology(shell.Task["FixTopology.Outputs"]):
     -------
 
     >>> from fileformats.generic import Directory, File
-    >>> from fileformats.medimage_freesurfer import Nofix, Orig
+    >>> from fileformats.vendor.freesurfer.medimage import Nofix, Orig
     >>> from pydra.tasks.freesurfer.v8.utils.fix_topology import FixTopology
 
     >>> task = FixTopology()

@@ -1,7 +1,7 @@
 import attrs
 from fileformats.generic import Directory, File
 from fileformats.medimage import MghGz, Nifti1
-from fileformats.medimage_freesurfer import Dat
+from fileformats.vendor.freesurfer.medimage import Dat
 import logging
 from pydra.tasks.freesurfer.v8.nipype_ports.utils.filemanip import fname_presuffix
 import os
@@ -96,7 +96,7 @@ class Tkregister2(shell.Task["Tkregister2.Outputs"]):
 
     >>> from fileformats.generic import Directory, File
     >>> from fileformats.medimage import MghGz, Nifti1
-    >>> from fileformats.medimage_freesurfer import Dat
+    >>> from fileformats.vendor.freesurfer.medimage import Dat
     >>> from pathlib import Path
     >>> from pydra.tasks.freesurfer.v8.utils.tkregister_2 import Tkregister2
 
