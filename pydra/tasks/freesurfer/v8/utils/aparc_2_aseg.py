@@ -28,11 +28,11 @@ def _format_arg(name, value, inputs, argstr):
 
 
 def aseg_formatter(field, inputs):
-    return _format_arg("aseg", field, inputs, argstr="--aseg {aseg}")
+    return _format_arg("aseg", inputs.aseg, inputs, argstr="--aseg {aseg}")
 
 
 def out_file_formatter(field, inputs):
-    return _format_arg("out_file", field, inputs, argstr="--o {out_file}")
+    return _format_arg("out_file", inputs.out_file, inputs, argstr="--o {out_file}")
 
 
 def _list_outputs(inputs=None, stdout=None, stderr=None, output_dir=None):
