@@ -131,7 +131,7 @@ class Aparc2Aseg(shell.Task["Aparc2Aseg.Outputs"]):
     )
     aseg: ty.Any | None = shell.arg(
         help="Input aseg file",
-        formatter="aseg_formatter",
+        formatter=aseg_formatter,
         default=False,
     )
     volmask: bool | None = shell.arg(
