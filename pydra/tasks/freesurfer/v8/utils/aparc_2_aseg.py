@@ -28,11 +28,13 @@ def _format_arg(name, value, inputs, argstr):
 
 
 def aseg_formatter(field, inputs):
-    return _format_arg("aseg", inputs.aseg, inputs, argstr="--aseg {aseg}")
+    value = inputs["aseg"] if isinstance(inputs, dict) else inputs.aseg
+    return _format_arg("aseg", value, inputs, argstr="--aseg {aseg}")
 
 
 def out_file_formatter(field, inputs):
-    return _format_arg("out_file", inputs.out_file, inputs, argstr="--o {out_file}")
+    value = inputs["out_file"] if isinstance(inputs, dict) else inputs.out_file
+    return _format_arg("out_file", value, inputs, argstr="--o {out_file}")
 
 
 def _list_outputs(inputs=None, stdout=None, stderr=None, output_dir=None):
