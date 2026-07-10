@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 def _format_arg(name, value, inputs, argstr):
-    if value is None:
+    if value is None or value is False:
         return ""
 
     if name == "aseg":
