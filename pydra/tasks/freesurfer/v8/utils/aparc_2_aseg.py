@@ -37,6 +37,17 @@ def out_file_formatter(field, inputs):
     return _format_arg("out_file", value, inputs, argstr="--o {out_file}")
 
 
+def ctxseg_formatter(field, inputs):
+    value = inputs["ctxseg"] if isinstance(inputs, dict) else inputs.ctxseg
+    if value is None or value is False:
+        return ""
+    return f"--ctxseg {value}"
+
+
+def _no_cmdline(field, inputs):
+    return ""
+
+
 def _list_outputs(inputs=None, stdout=None, stderr=None, output_dir=None):
     inputs = attrs.asdict(inputs)
 
@@ -123,9 +134,11 @@ class Aparc2Aseg(shell.Task["Aparc2Aseg.Outputs"]):
     )
     lh_annotation: ty.Any = shell.arg(
         help="Input file must be <subject_id>/label/lh.aparc.annot",
+        formatter=_no_cmdline,
     )
     rh_annotation: ty.Any = shell.arg(
         help="Input file must be <subject_id>/label/rh.aparc.annot",
+        formatter=_no_cmdline,
     )
     filled: ty.Any | None = shell.arg(
         help="Implicit input filled file. Only required with FS v5.3.",
@@ -143,7 +156,7 @@ class Aparc2Aseg(shell.Task["Aparc2Aseg.Outputs"]):
     )
     ctxseg: ty.Any | None = shell.arg(
         help="",
-        argstr="--ctxseg {ctxseg}",
+        formatter=ctxseg_formatter,
         default=False,
     )
     label_wm: bool | None = shell.arg(
