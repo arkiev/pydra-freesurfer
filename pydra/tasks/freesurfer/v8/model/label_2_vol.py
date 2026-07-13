@@ -149,7 +149,7 @@ class Label2Vol(shell.Task["Label2Vol.Outputs"]):
     # subjects_dir: Directory | None = shell.arg(help="subjects directory")
 
     class Outputs(shell.Outputs):
-        vol_label_file: Path = shell.outarg(
+        vol_label_file: Path | bool = shell.outarg(
             help="output volume",
             argstr="--o {vol_label_file}",
             path_template="vol_label_file.nii",
