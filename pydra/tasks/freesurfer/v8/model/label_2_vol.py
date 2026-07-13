@@ -153,6 +153,7 @@ class Label2Vol(shell.Task["Label2Vol.Outputs"]):
             help="output volume",
             argstr="--o {vol_label_file}",
             path_template="vol_label_file.nii",
+            default=True,
         )
 
 
