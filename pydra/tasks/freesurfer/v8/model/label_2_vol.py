@@ -150,7 +150,7 @@ class Label2Vol(shell.Task["Label2Vol.Outputs"]):
         vol_label_file: File | bool = shell.outarg(
             help="output volume",
             argstr="--o {vol_label_file}",
-            path_template="vol_label_file.nii",
+            path_template="vol_label_file.nii.gz",
             default=True,
         )
 
