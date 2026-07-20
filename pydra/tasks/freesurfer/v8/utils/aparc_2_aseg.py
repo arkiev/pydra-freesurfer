@@ -100,6 +100,11 @@ class Aparc2Aseg(shell.Task["Aparc2Aseg.Outputs"]):
     subject_id: ty.Any | None = shell.arg(
         help="Subject being processed", argstr="--s {subject_id}", default=False
     )
+    annot: str | None = shell.arg(
+        help="Annotation short name; mri_aparc2aseg looks for <subject>/label/?h.<annot>.annot",
+        argstr="--annot {annot}",
+        default=None,
+    )
     out_file: Path = shell.arg(
         help="Full path of file to save the output segmentation in",
         formatter=out_file_formatter,
